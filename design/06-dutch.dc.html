@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>카페 더치페이 결제자별 적립</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:800px;height:1280px;box-sizing:border-box;background:#F7F3EE;color:#2B1D16;font-family:'Noto Sans KR',sans-serif;display:flex;flex-direction:column;overflow:hidden">
+
+<div style="height:96px;flex:none;box-sizing:border-box;padding:0 32px;background:#FFFFFF;border-bottom:1px solid #E5DACE;display:flex;align-items:center;justify-content:space-between">
+<span style="font-size:34px;font-weight:700">더치페이</span>
+<button style="height:56px;padding:0 24px;border:1px solid #DCCFC2;border-radius:28px;background:#FFFFFF;font-family:inherit;font-size:20px;font-weight:500;color:#2B1D16">직원 호출</button>
+</div>
+
+<div style="flex:none;box-sizing:border-box;padding:24px 32px 12px;display:flex;gap:10px">
+<button style="flex:1;height:64px;border:2px solid #DCCFC2;border-radius:16px;background:#FFFFFF;color:#2B1D16;font-family:inherit;font-size:22px;font-weight:500">N등분</button>
+<button aria-pressed="true" style="flex:1;height:64px;border:0;border-radius:16px;background:#2563EB;color:#FFFFFF;font-family:inherit;font-size:22px;font-weight:700">메뉴별</button>
+<button style="flex:1;height:64px;border:2px solid #DCCFC2;border-radius:16px;background:#FFFFFF;color:#2B1D16;font-family:inherit;font-size:22px;font-weight:500">금액 입력</button>
+</div>
+
+<div style="flex:none;box-sizing:border-box;padding:12px 32px">
+<div style="box-sizing:border-box;background:#FFFFFF;border:1px solid #E5DACE;border-radius:20px;padding:22px 24px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between">
+<div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:18px;color:#6B5A4E">전체</span><span style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700">16,600원</span></div>
+<div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:18px;color:#6B5A4E">결제 완료</span><span style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;color:#007A64">4,700원</span></div>
+<div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end"><span style="font-size:18px;color:#6B5A4E">남은 금액</span><span style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;color:#B42318">11,900원</span></div>
+</div>
+<div style="height:14px;border-radius:7px;background:#EFE6DC;overflow:hidden"><div style="width:28.3%;height:14px;background:#007A64"></div></div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;align-items:center;justify-content:space-between;font-size:18px"><span style="display:flex;align-items:center;gap:10px"><span style="height:34px;padding:0 12px;border-radius:17px;background:#E3F7F2;color:#00473A;font-weight:700;display:flex;align-items:center">결제자 1 · 완료</span>아메리카노</span><span style="color:#00473A;font-weight:700">010-****-1111 · 스탬프 +1</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;font-size:18px"><span style="display:flex;align-items:center;gap:10px"><span style="height:34px;padding:0 12px;border-radius:17px;background:#2563EB;color:#FFFFFF;font-weight:700;display:flex;align-items:center">결제자 2 · 진행 중</span>메뉴 선택 중</span><span style="color:#6B5A4E">번호 입력 전</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;font-size:18px"><span style="display:flex;align-items:center;gap:10px"><span style="height:34px;padding:0 12px;border-radius:17px;background:#EFE6DC;color:#6B5A4E;display:flex;align-items:center">결제자 3 · 대기</span></span></div>
+</div>
+</div>
+</div>
+
+<div style="flex:none;box-sizing:border-box;padding:12px 32px 8px">
+<span style="font-size:24px;font-weight:700">결제자 2님, 드신 음료를 골라 주세요</span>
+</div>
+
+<div style="flex:none;box-sizing:border-box;padding:4px 32px 0;display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{rows}}" as="row" hint-placeholder-count="3">
+<button aria-pressed="{{row.pressed}}" style="box-sizing:border-box;width:100%;min-height:92px;border:{{row.border}};border-radius:16px;background:{{row.bg}};padding:14px 20px;display:flex;align-items:center;gap:20px;text-align:left;font-family:inherit;color:{{row.ink}}">
+<div style="width:40px;height:40px;flex:none;border-radius:10px;box-sizing:border-box;border:{{row.boxBorder}};background:{{row.boxBg}};display:flex;align-items:center;justify-content:center">
+<sc-if value="{{row.showCheck}}" hint-placeholder-val="{{false}}">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>
+</sc-if>
+</div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px">
+<span style="font-size:22px;font-weight:700;line-height:30px">{{row.name}}</span>
+<span style="font-size:17px;color:#6B5A4E">{{row.note}}</span>
+</div>
+<span style="font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700">{{row.price}}원</span>
+</button>
+</sc-for>
+</div>
+
+<div style="flex:none;box-sizing:border-box;padding:16px 32px 0">
+<div style="box-sizing:border-box;border-radius:16px;background:#E3F7F2;border:1px solid #00C9A7;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+<div style="display:flex;flex-direction:column;gap:2px">
+<span style="font-size:20px;font-weight:700;color:#00473A">내 스탬프 적립 · 1잔 = +1개</span>
+<span style="font-size:17px;color:#00473A">결제자마다 각자 번호로 적립돼요</span>
+</div>
+<button style="height:60px;padding:0 24px;border:0;border-radius:16px;background:#007A64;color:#FFFFFF;font-family:inherit;font-size:20px;font-weight:700">번호 입력</button>
+</div>
+</div>
+
+<div style="flex:1"></div>
+
+<div style="height:176px;flex:none;box-sizing:border-box;padding:0 32px;background:#FFFFFF;border-top:1px solid #E5DACE;display:flex;flex-direction:column;justify-content:center;gap:12px">
+<div style="display:flex;justify-content:space-between;align-items:baseline">
+<span style="font-size:22px;color:#6B5A4E">결제자 2 결제 금액</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:40px;font-weight:700;color:#2563EB">5,800원</span>
+</div>
+<button style="width:100%;height:80px;border:0;border-radius:20px;background:#2563EB;color:#FFFFFF;font-family:inherit;font-size:26px;font-weight:700">5,800원 결제하기</button>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":800,"height":1280}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const src = [
+      { name: '아메리카노 ICE', note: '결제자 1 결제 완료', price: '4,700', kind: 'paid' },
+      { name: '카페 라떼 ICE', note: '그란데', price: '5,800', kind: 'picked' },
+      { name: '말차 라떼 HOT', note: '톨', price: '6,100', kind: 'open' }
+    ];
+    return {
+      rows: src.map((s) => {
+        const paid = s.kind === 'paid';
+        const picked = s.kind === 'picked';
+        return {
+          ...s,
+          pressed: picked,
+          showCheck: picked || paid,
+          border: picked ? '3px solid #2563EB' : '2px solid #DCCFC2',
+          bg: paid ? '#EFE9E2' : picked ? '#E8EFFE' : '#FFFFFF',
+          ink: paid ? '#6B5A4E' : '#2B1D16',
+          boxBorder: picked || paid ? '0' : '2px solid #A8988B',
+          boxBg: picked ? '#2563EB' : paid ? '#007A64' : '#FFFFFF'
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

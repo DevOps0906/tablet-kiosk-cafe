@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>음료 옵션 선택</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:800px;height:1280px;box-sizing:border-box;background:#5C5048;color:#2B1D16;font-family:'Noto Sans KR',sans-serif;display:flex;flex-direction:column;overflow:hidden">
+
+<div style="height:96px;flex:none"></div>
+
+<div style="flex:1;min-height:0;box-sizing:border-box;background:#FFFFFF;border-radius:32px 32px 0 0;display:flex;flex-direction:column;overflow:hidden">
+
+<div style="flex:none;box-sizing:border-box;padding:28px 32px 20px;display:flex;align-items:center;gap:20px;border-bottom:1px solid #EFE6DC">
+<div style="width:104px;height:104px;flex:none;border-radius:20px;background:#F1E6DA;display:flex;align-items:center;justify-content:center;font-size:15px;color:#6B5A4E">사진</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px">
+<span style="font-size:30px;font-weight:700;line-height:40px">카페 라떼</span>
+<span style="font-size:18px;color:#6B5A4E">에스프레소와 스팀 우유</span>
+</div>
+<button aria-label="닫기" style="width:56px;height:56px;border:1px solid #DCCFC2;border-radius:28px;background:#FFFFFF;font-family:inherit;font-size:26px;color:#2B1D16">×</button>
+</div>
+
+<div style="flex:1;min-height:0;box-sizing:border-box;padding:20px 32px;display:flex;flex-direction:column;gap:22px;overflow:hidden">
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<span style="font-size:20px;font-weight:700">온도</span>
+<div style="height:60px;box-sizing:border-box;padding:4px;border-radius:16px;background:#F1EAE2;display:flex;gap:4px">
+<button style="flex:1;border:0;border-radius:12px;background:transparent;color:#B42318;font-family:inherit;font-size:21px;font-weight:700">HOT</button>
+<button aria-pressed="true" style="flex:1;border:0;border-radius:12px;background:#1D4ED8;color:#FFFFFF;font-family:inherit;font-size:21px;font-weight:700">ICE</button>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<span style="font-size:20px;font-weight:700">사이즈</span>
+<div style="display:flex;gap:12px">
+<button style="flex:1;height:104px;box-sizing:border-box;border:2px solid #DCCFC2;border-radius:16px;background:#FFFFFF;font-family:inherit;color:#2B1D16;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px"><span style="font-size:21px;font-weight:700">톨</span><span style="font-size:16px;color:#6B5A4E">355ml · 기본</span></button>
+<button aria-pressed="true" style="flex:1;height:104px;box-sizing:border-box;border:3px solid #5A3A28;border-radius:16px;background:#F7EFE6;font-family:inherit;color:#2B1D16;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px"><span style="font-size:21px;font-weight:700">그란데</span><span style="font-size:16px;color:#5A3A28">473ml · +600원</span></button>
+<button style="flex:1;height:104px;box-sizing:border-box;border:2px solid #DCCFC2;border-radius:16px;background:#FFFFFF;font-family:inherit;color:#2B1D16;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px"><span style="font-size:21px;font-weight:700">벤티</span><span style="font-size:16px;color:#6B5A4E">591ml · +1,200원</span></button>
+</div>
+</div>
+
+<div style="display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-top:1px solid #EFE6DC;border-bottom:1px solid #EFE6DC">
+<div style="display:flex;flex-direction:column;gap:2px;padding:10px 0">
+<span style="font-size:20px;font-weight:700">에스프레소 샷</span>
+<span style="font-size:16px;color:#6B5A4E">추가 1샷당 +600원</span>
+</div>
+<div style="display:flex;align-items:center;gap:12px">
+<button aria-label="샷 줄이기" style="width:56px;height:56px;border:1px solid #DCCFC2;border-radius:12px;background:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:26px;color:#2B1D16">−</button>
+<span style="min-width:72px;text-align:center;font-size:20px;font-weight:700">기본 2</span>
+<button aria-label="샷 늘리기" style="width:56px;height:56px;border:1px solid #DCCFC2;border-radius:12px;background:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:26px;color:#2B1D16">+</button>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<span style="font-size:20px;font-weight:700">시럽 <span style="font-size:16px;font-weight:400;color:#6B5A4E">+600원</span></span>
+<div style="display:flex;gap:10px">
+<button aria-pressed="true" style="flex:1;height:56px;border:2px solid #5A3A28;border-radius:14px;background:#F7EFE6;font-family:inherit;font-size:19px;font-weight:700;color:#2B1D16">없음</button>
+<button style="flex:1;height:56px;border:1px solid #DCCFC2;border-radius:14px;background:#FFFFFF;font-family:inherit;font-size:19px;color:#2B1D16">바닐라</button>
+<button style="flex:1;height:56px;border:1px solid #DCCFC2;border-radius:14px;background:#FFFFFF;font-family:inherit;font-size:19px;color:#2B1D16">헤이즐넛</button>
+<button style="flex:1;height:56px;border:1px solid #DCCFC2;border-radius:14px;background:#FFFFFF;font-family:inherit;font-size:19px;color:#2B1D16">카라멜</button>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<span style="font-size:20px;font-weight:700">얼음 양</span>
+<div style="display:flex;gap:10px">
+<button style="flex:1;height:56px;border:1px solid #DCCFC2;border-radius:14px;background:#FFFFFF;font-family:inherit;font-size:19px;color:#2B1D16">적게</button>
+<button aria-pressed="true" style="flex:1;height:56px;border:2px solid #5A3A28;border-radius:14px;background:#F7EFE6;font-family:inherit;font-size:19px;font-weight:700;color:#2B1D16">보통</button>
+<button style="flex:1;height:56px;border:1px solid #DCCFC2;border-radius:14px;background:#FFFFFF;font-family:inherit;font-size:19px;color:#2B1D16">많이</button>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+<span style="font-size:20px;font-weight:700">컵 선택</span>
+<div style="display:flex;gap:10px">
+<button aria-pressed="true" style="flex:1;height:56px;border:2px solid #5A3A28;border-radius:14px;background:#F7EFE6;font-family:inherit;font-size:19px;font-weight:700;color:#2B1D16">매장 컵</button>
+<button style="flex:1;height:56px;border:1px solid #DCCFC2;border-radius:14px;background:#FFFFFF;font-family:inherit;font-size:19px;color:#2B1D16">개인 컵 [할인]</button>
+<button style="flex:1;height:56px;border:1px solid #DCCFC2;border-radius:14px;background:#FFFFFF;font-family:inherit;font-size:19px;color:#2B1D16">일회용 컵</button>
+</div>
+</div>
+
+</div>
+
+<div style="height:144px;flex:none;box-sizing:border-box;padding:0 32px;border-top:1px solid #EFE6DC;display:flex;align-items:center;gap:20px">
+<div style="display:flex;align-items:center;gap:12px">
+<button aria-label="수량 줄이기" style="width:56px;height:56px;border:1px solid #DCCFC2;border-radius:12px;background:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:26px;color:#2B1D16">−</button>
+<span style="min-width:36px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700">1</span>
+<button aria-label="수량 늘리기" style="width:56px;height:56px;border:1px solid #DCCFC2;border-radius:12px;background:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:26px;color:#2B1D16">+</button>
+</div>
+<button style="flex:1;height:88px;border:0;border-radius:20px;background:#5A3A28;color:#FFFFFF;font-family:inherit;font-size:26px;font-weight:700">5,800원 담기</button>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":800,"height":1280}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

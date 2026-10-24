@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>카페 소프트웨어형 더치페이</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1280px;height:800px;box-sizing:border-box;background:#F7F3EE;color:#2B1D16;font-family:'Noto Sans KR',sans-serif;display:flex;flex-direction:column;overflow:hidden">
+
+<div style="height:80px;flex:none;box-sizing:border-box;padding:0 24px;background:#FFFFFF;border-bottom:1px solid #E5DACE;display:flex;align-items:center;gap:16px">
+<span style="font-size:30px;font-weight:900">더치페이</span>
+<div style="margin-left:16px;display:flex;gap:8px">
+<button style="height:52px;padding:0 22px;border:2px solid #DCCFC2;border-radius:14px;background:#FFFFFF;font-family:inherit;font-size:19px;color:#2B1D16">N등분</button>
+<button aria-pressed="true" style="height:52px;padding:0 22px;border:0;border-radius:14px;background:#2563EB;color:#FFFFFF;font-family:inherit;font-size:19px;font-weight:700">메뉴별</button>
+<button style="height:52px;padding:0 22px;border:2px solid #DCCFC2;border-radius:14px;background:#FFFFFF;font-family:inherit;font-size:19px;color:#2B1D16">금액 입력</button>
+</div>
+<span style="flex:1"></span>
+<span style="font-size:16px;color:#6B5A4E">각자 고른 음료만큼 각자 번호로 적립</span>
+</div>
+
+<div style="flex:1;min-height:0;box-sizing:border-box;padding:24px;display:flex;gap:24px">
+
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:12px">
+<span style="font-size:24px;font-weight:700">결제자 2님, 드신 음료를 골라 주세요</span>
+<sc-for list="{{rows}}" as="row" hint-placeholder-count="3">
+<button aria-pressed="{{row.pressed}}" style="box-sizing:border-box;width:100%;height:92px;border:{{row.border}};border-radius:18px;background:{{row.bg}};padding:0 22px;display:flex;align-items:center;gap:18px;text-align:left;font-family:inherit;color:{{row.ink}}">
+<span style="width:38px;height:38px;flex:none;box-sizing:border-box;border-radius:10px;border:{{row.boxBorder}};background:{{row.boxBg}};color:#FFFFFF;font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center">{{row.check}}</span>
+<div style="flex:1;display:flex;flex-direction:column;gap:2px"><span style="font-size:22px;font-weight:700">{{row.name}}</span><span style="font-size:16px;color:#6B5A4E">{{row.note}}</span></div>
+<span style="font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700">{{row.price}}원</span>
+</button>
+</sc-for>
+<div style="box-sizing:border-box;border-radius:18px;background:#E3F7F2;border:1px solid #00C9A7;padding:18px 22px;display:flex;align-items:center;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:2px"><span style="font-size:20px;font-weight:700;color:#00473A">결제자 2 스탬프 적립 · 1잔 = +1개</span><span style="font-size:16px;color:#00473A">번호를 넣지 않으면 적립 없이 결제돼요</span></div>
+<button style="height:60px;padding:0 24px;border:0;border-radius:16px;background:#007A64;color:#FFFFFF;font-family:inherit;font-size:19px;font-weight:700">번호 입력</button>
+</div>
+</div>
+
+<div style="width:380px;flex:none;box-sizing:border-box;background:#FFFFFF;border:1px solid #E5DACE;border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;justify-content:space-between;font-size:18px"><span style="color:#6B5A4E">전체</span><span style="font-family:'JetBrains Mono',monospace;font-weight:700">16,600원</span></div>
+<div style="display:flex;justify-content:space-between;font-size:18px"><span style="color:#6B5A4E">결제 완료</span><span style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#007A64">4,700원</span></div>
+<div style="display:flex;justify-content:space-between;font-size:18px"><span style="color:#6B5A4E">남은 금액</span><span style="font-family:'JetBrains Mono',monospace;font-weight:700;color:#B42318">11,900원</span></div>
+<div style="height:12px;border-radius:6px;background:#EFE6DC;overflow:hidden"><div style="width:28.3%;height:12px;background:#007A64"></div></div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="height:38px;padding:0 12px;border-radius:12px;background:#E3F7F2;color:#00473A;font-size:15px;font-weight:700;display:flex;align-items:center">결제자 1 · 완료 · 010-****-1111 +1</span>
+<span style="height:38px;padding:0 12px;border-radius:12px;background:#2563EB;color:#FFFFFF;font-size:15px;font-weight:700;display:flex;align-items:center">결제자 2 · 진행 중</span>
+<span style="height:38px;padding:0 12px;border-radius:12px;background:#EFE9E2;color:#6B5A4E;font-size:15px;display:flex;align-items:center">결제자 3 · 대기</span>
+</div>
+<div style="flex:1"></div>
+<span style="font-size:18px;color:#6B5A4E">결제자 2 결제 금액</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:44px;font-weight:700;color:#2563EB">5,800원</span>
+<button style="height:72px;border:0;border-radius:18px;background:#2563EB;color:#FFFFFF;font-family:inherit;font-size:23px;font-weight:700">5,800원 결제하기</button>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const src = [
+      { name: '아메리카노 ICE', note: '결제자 1 결제 완료', price: '4,700', kind: 'paid' },
+      { name: '카페 라떼 ICE', note: '그란데', price: '5,800', kind: 'picked' },
+      { name: '말차 라떼 HOT', note: '톨', price: '6,100', kind: 'open' }
+    ];
+    return {
+      rows: src.map((s) => {
+        const paid = s.kind === 'paid', picked = s.kind === 'picked';
+        return {
+          ...s, pressed: picked, check: picked || paid ? '✓' : '',
+          border: picked ? '3px solid #2563EB' : '1px solid #DCCFC2',
+          bg: paid ? '#EFE9E2' : picked ? '#E8EFFE' : '#FFFFFF',
+          ink: paid ? '#6B5A4E' : '#2B1D16',
+          boxBorder: picked || paid ? '0' : '2px solid #A8988B',
+          boxBg: picked ? '#2563EB' : paid ? '#007A64' : '#FFFFFF'
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>카페 소프트웨어형 스탬프 적립</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1280px;height:800px;box-sizing:border-box;background:#F7F3EE;color:#2B1D16;font-family:'Noto Sans KR',sans-serif;display:flex;flex-direction:column;overflow:hidden">
+
+<div style="height:80px;flex:none;box-sizing:border-box;padding:0 24px;background:#FFFFFF;border-bottom:1px solid #E5DACE;display:flex;align-items:center;gap:16px">
+<a href="sw-04-pay.dc.html" style="height:52px;box-sizing:border-box;padding:0 20px;border:1px solid #DCCFC2;border-radius:26px;font-size:18px;color:#2B1D16;text-decoration:none;display:flex;align-items:center">‹ 이전</a>
+<span style="font-size:30px;font-weight:900">스탬프 적립</span>
+<span style="height:38px;padding:0 14px;border-radius:12px;background:#F7EFE6;color:#3A2418;font-size:17px;font-weight:700;display:flex;align-items:center">전체결제</span>
+</div>
+
+<div style="flex:1;min-height:0;box-sizing:border-box;padding:28px;display:flex;gap:28px">
+
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:20px">
+<label for="swPhone" style="font-size:24px;font-weight:900">휴대폰 번호를 입력해 주세요</label>
+<input id="swPhone" readonly value="010 - 1234 - 5678" style="height:96px;box-sizing:border-box;border:3px solid #5A3A28;border-radius:20px;background:#FFFFFF;padding:0 28px;font-family:'JetBrains Mono',monospace;font-size:42px;font-weight:700;color:#2B1D16">
+
+<div style="box-sizing:border-box;border-radius:22px;background:#FFFFFF;border:2px solid #00C9A7;padding:22px 24px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:22px;font-weight:700">단골님 스탬프</span><span style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;color:#007A64">7 → 10 / 10</span></div>
+<div style="display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:10px">
+<sc-for list="{{stamps}}" as="s" hint-placeholder-count="10">
+<div style="height:52px;border-radius:26px;background:{{s.bg}};color:{{s.ink}};font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center">{{s.label}}</div>
+</sc-for>
+</div>
+<div style="box-sizing:border-box;border-radius:14px;background:#FEF3D7;padding:14px 18px;font-size:20px;font-weight:700;line-height:28px;color:#7A4A00">10개 달성! 결제가 끝나면 커피 1잔 무료 쿠폰을 문자로 보내드려요</div>
+</div>
+<span style="font-size:16px;line-height:24px;color:#6B5A4E">처음이면 이 번호로 바로 가입돼요. 번호는 스탬프 적립과 쿠폰 발송에만 써요. [개인정보 수집·이용 동의]</span>
+</div>
+
+<div style="width:420px;flex:none;display:flex;flex-direction:column;gap:12px">
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+<button style="height:84px;border:1px solid #DCCFC2;border-radius:16px;background:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;color:#2B1D16">1</button>
+<button style="height:84px;border:1px solid #DCCFC2;border-radius:16px;background:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;color:#2B1D16">2</button>
+<button style="height:84px;border:1px solid #DCCFC2;border-radius:16px;background:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;color:#2B1D16">3</button>
+<button style="height:84px;border:1px solid #DCCFC2;border-radius:16px;background:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;color:#2B1D16">4</button>
+<button style="height:84px;border:1px solid #DCCFC2;border-radius:16px;background:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;color:#2B1D16">5</button>
+<button style="height:84px;border:1px solid #DCCFC2;border-radius:16px;background:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;color:#2B1D16">6</button>
+<button style="height:84px;border:1px solid #DCCFC2;border-radius:16px;background:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;color:#2B1D16">7</button>
+<button style="height:84px;border:1px solid #DCCFC2;border-radius:16px;background:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;color:#2B1D16">8</button>
+<button style="height:84px;border:1px solid #DCCFC2;border-radius:16px;background:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;color:#2B1D16">9</button>
+<button style="height:84px;border:1px solid #DCCFC2;border-radius:16px;background:#EFE6DC;font-family:inherit;font-size:22px;font-weight:700;color:#2B1D16">전체 지움</button>
+<button style="height:84px;border:1px solid #DCCFC2;border-radius:16px;background:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;color:#2B1D16">0</button>
+<button aria-label="한 글자 지움" style="height:84px;border:1px solid #DCCFC2;border-radius:16px;background:#EFE6DC;font-family:inherit;font-size:30px;font-weight:700;color:#2B1D16">⌫</button>
+</div>
+<div style="flex:1"></div>
+<div style="display:flex;gap:12px">
+<button style="flex:1;height:76px;border:2px solid #DCCFC2;border-radius:18px;background:#FFFFFF;font-family:inherit;font-size:20px;font-weight:700;color:#2B1D16">적립 안 함</button>
+<button style="flex:2;height:76px;border:0;border-radius:18px;background:#5A3A28;color:#FFFFFF;font-family:inherit;font-size:20px;font-weight:700">적립하고 16,600원 결제</button>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const stamps = [];
+    for (let i = 1; i <= 10; i++) {
+      const old = i <= 7;
+      stamps.push({ label: String(i), bg: old ? '#007A64' : '#F59E0B', ink: old ? '#FFFFFF' : '#412402' });
+    }
+    return { stamps };
+  }
+}
+</script>
+</body>
+</html>

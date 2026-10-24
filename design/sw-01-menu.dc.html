@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>카페 소프트웨어형 메뉴</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1280px;height:800px;box-sizing:border-box;background:#F7F3EE;color:#2B1D16;font-family:'Noto Sans KR',sans-serif;display:flex;flex-direction:column;overflow:hidden">
+
+<div style="height:80px;flex:none;box-sizing:border-box;padding:0 24px;background:#FFFFFF;border-bottom:1px solid #E5DACE;display:flex;align-items:center;gap:16px">
+<span style="width:48px;height:48px;flex:none;border-radius:24px;background:#2B1D16;color:#F7F3EE;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center">로고</span>
+<span style="font-size:24px;font-weight:900">[카페 이름] 커피</span>
+<div role="tablist" aria-label="매장 또는 포장" style="margin-left:12px;width:240px;height:54px;box-sizing:border-box;padding:4px;border-radius:16px;background:#EFE6DC;display:flex;gap:4px">
+<button role="tab" aria-selected="{{dineSel}}" style="flex:1;border:0;border-radius:12px;background:{{dineBg}};color:{{dineInk}};font-family:inherit;font-size:19px;font-weight:700">매장</button>
+<button role="tab" aria-selected="{{takeSel}}" style="flex:1;border:0;border-radius:12px;background:{{takeBg}};color:{{takeInk}};font-family:inherit;font-size:19px;font-weight:700">포장</button>
+</div>
+<span style="flex:1"></span>
+<span style="height:44px;padding:0 16px;border-radius:22px;background:#E3F7F2;color:#00473A;font-size:16px;font-weight:700;display:flex;align-items:center">스탬프 10개 = 1잔</span>
+<button style="height:52px;padding:0 20px;border:1px solid #DCCFC2;border-radius:26px;background:#FFFFFF;font-family:inherit;font-size:18px;color:#2B1D16">처음으로</button>
+</div>
+
+<div style="flex:1;min-height:0;display:flex">
+
+<div style="width:150px;flex:none;box-sizing:border-box;background:#FFFFFF;border-right:1px solid #E5DACE;padding:16px 12px;display:flex;flex-direction:column;gap:8px">
+<button style="height:60px;border:0;border-radius:14px;background:#2B1D16;color:#F7F3EE;font-family:inherit;font-size:19px;font-weight:700">추천</button>
+<button style="height:60px;border:0;border-radius:14px;background:transparent;color:#2B1D16;font-family:inherit;font-size:19px">커피</button>
+<button style="height:60px;border:0;border-radius:14px;background:transparent;color:#2B1D16;font-family:inherit;font-size:19px">라떼</button>
+<button style="height:60px;border:0;border-radius:14px;background:transparent;color:#2B1D16;font-family:inherit;font-size:19px">에이드 · 티</button>
+<button style="height:60px;border:0;border-radius:14px;background:transparent;color:#2B1D16;font-family:inherit;font-size:19px">스무디</button>
+<button style="height:60px;border:0;border-radius:14px;background:transparent;color:#2B1D16;font-family:inherit;font-size:19px">디저트</button>
+</div>
+
+<div style="flex:1;min-width:0;box-sizing:border-box;padding:20px;overflow:hidden">
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px">
+<sc-for list="{{items}}" as="item" hint-placeholder-count="12">
+<div style="position:relative;box-sizing:border-box;background:#FFFFFF;border:1px solid #E5DACE;border-radius:18px;overflow:hidden">
+<div style="height:104px;background:{{item.tint}};display:flex;align-items:center;justify-content:center;font-size:14px;color:#6B5A4E">사장님 촬영 사진</div>
+<sc-if value="{{item.hasQty}}" hint-placeholder-val="{{false}}">
+<div style="position:absolute;right:8px;top:8px;width:34px;height:34px;border-radius:17px;background:#2B1D16;color:#FFFFFF;font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:700;display:flex;align-items:center;justify-content:center">{{item.qty}}</div>
+</sc-if>
+<div style="padding:10px 12px 12px;display:flex;flex-direction:column;gap:2px">
+<span style="font-size:18px;font-weight:700;line-height:24px">{{item.name}}</span>
+<span style="font-size:14px;font-weight:700;color:{{item.tempInk}}">{{item.temp}}</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:700">{{item.price}}원</span>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="width:340px;flex:none;box-sizing:border-box;background:#FFFFFF;border-left:1px solid #E5DACE;padding:20px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:22px;font-weight:700">주문 내역</span><span style="height:34px;padding:0 12px;border-radius:10px;background:#5A3A28;color:#FFFFFF;font-size:17px;font-weight:700;display:flex;align-items:center">매장</span></div>
+<sc-for list="{{lines}}" as="l" hint-placeholder-count="3">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;border-bottom:1px solid #EFE6DC">
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:18px;font-weight:700">{{l.name}}</span><span style="font-size:15px;color:#6B5A4E">{{l.opt}}</span></div>
+<span style="font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:700">{{l.total}}원</span>
+</div>
+</sc-for>
+<div style="box-sizing:border-box;border-radius:12px;background:#E3F7F2;padding:12px 14px;font-size:16px;font-weight:700;color:#00473A">음료 3잔 · 스탬프 +3 예정</div>
+<div style="flex:1"></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:20px;font-weight:700">합계</span><span style="font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;color:#5A3A28">16,600원</span></div>
+<a href="sw-03-cart.dc.html" style="height:72px;box-sizing:border-box;border-radius:18px;background:#5A3A28;color:#FFFFFF;font-size:22px;font-weight:700;text-decoration:none;display:flex;align-items:center;justify-content:center">주문 확인 ›</a>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"orderType":{"editor":"enum","options":["매장","포장"],"default":"매장"},"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const dine = (this.props.orderType ?? '매장') === '매장';
+    const base = [
+      { name: '아메리카노', price: '4,700', tint: '#EADBCB', temp: 'HOT · ICE', qty: 1 },
+      { name: '카페 라떼', price: '5,200', tint: '#F1E6DA', temp: 'HOT · ICE', qty: 1 },
+      { name: '바닐라 라떼', price: '5,700', tint: '#F6EEDC', temp: 'HOT · ICE' },
+      { name: '콜드브루', price: '5,200', tint: '#DDD1C6', temp: 'ICE ONLY' },
+      { name: '수제 카라멜 라떼', price: '6,100', tint: '#F3E2C9', temp: 'HOT · ICE' },
+      { name: '말차 라떼', price: '6,100', tint: '#DCEAD6', temp: 'HOT · ICE', qty: 1 },
+      { name: '자몽 에이드', price: '6,300', tint: '#FBE2DA', temp: 'ICE ONLY' },
+      { name: '얼그레이 티', price: '4,700', tint: '#EDE3EF', temp: 'HOT · ICE' },
+      { name: '딸기 스무디', price: '6,300', tint: '#F8DCE0', temp: 'ICE ONLY' },
+      { name: '오늘의 핸드드립', price: '6,000', tint: '#E4D3C4', temp: 'HOT' },
+      { name: '크로플', price: '4,500', tint: '#F6EEDC', temp: '디저트' },
+      { name: '바스크 치즈케이크', price: '6,500', tint: '#FBF0D9', temp: '디저트' }
+    ];
+    return {
+      dineSel: dine, takeSel: !dine,
+      dineBg: dine ? '#5A3A28' : 'transparent', dineInk: dine ? '#FFFFFF' : '#6B5A4E',
+      takeBg: dine ? 'transparent' : '#5A3A28', takeInk: dine ? '#6B5A4E' : '#FFFFFF',
+      items: base.map((b) => ({ ...b, hasQty: !!b.qty, tempInk: b.temp === 'ICE ONLY' ? '#1D4ED8' : '#6B5A4E' })),
+      lines: [
+        { name: '아메리카노 ICE', opt: '톨 · 매장 컵', total: '4,700' },
+        { name: '카페 라떼 ICE', opt: '그란데 · 매장 컵', total: '5,800' },
+        { name: '말차 라떼 HOT', opt: '톨 · 매장 컵', total: '6,100' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>카페 소프트웨어형 주문 완료</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:1280px;height:800px;box-sizing:border-box;background:#F7F3EE;color:#2B1D16;font-family:'Noto Sans KR',sans-serif;display:flex;overflow:hidden">
+
+<div style="flex:1;box-sizing:border-box;padding:48px 56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px">
+<div style="width:88px;height:88px;border-radius:44px;background:#5A3A28;display:flex;align-items:center;justify-content:center"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></div>
+<span style="font-size:34px;font-weight:900">주문이 접수되었어요</span>
+<div style="box-sizing:border-box;width:480px;padding:20px 0;border-radius:24px;background:#FFFFFF;border:1px solid #E5DACE;display:flex;flex-direction:column;align-items:center;gap:2px">
+<span style="font-size:19px;color:#6B5A4E">매장 · 주문번호</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:92px;font-weight:700;line-height:104px;color:#5A3A28">C-042</span>
+<span style="font-size:17px;color:#6B5A4E">음료가 준비되면 번호를 불러 드려요</span>
+</div>
+<div style="box-sizing:border-box;width:640px;border-radius:20px;background:#E3F7F2;border:2px solid #00C9A7;padding:18px 22px;display:flex;align-items:center;gap:18px">
+<div style="width:80px;height:80px;flex:none;border-radius:18px;background:#007A64;color:#FFFFFF;display:flex;flex-direction:column;align-items:center;justify-content:center"><span style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:700;line-height:32px">10</span><span style="font-size:13px">/10</span></div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px"><span style="font-size:22px;font-weight:700;color:#00473A">스탬프 +3 · 10개 달성!</span><span style="font-size:17px;line-height:25px;color:#00473A">커피 1잔 무료 쿠폰을 010-****-5678로 보냈어요. 스탬프는 0개부터 다시 쌓여요.</span></div>
+</div>
+<div style="display:flex;gap:16px;margin-top:6px">
+<button style="width:220px;height:72px;border:2px solid #5A3A28;border-radius:18px;background:#FFFFFF;color:#5A3A28;font-family:inherit;font-size:21px;font-weight:700">영수증 출력</button>
+<a href="sw-00-start.dc.html" style="width:220px;height:72px;box-sizing:border-box;border-radius:18px;background:#5A3A28;color:#FFFFFF;font-size:21px;font-weight:700;text-decoration:none;display:flex;align-items:center;justify-content:center">처음으로</a>
+</div>
+</div>
+
+<div style="width:420px;flex:none;box-sizing:border-box;background:#EFE6DC;padding:48px 36px;display:flex;flex-direction:column;align-items:center;gap:12px">
+<span style="font-size:17px;font-weight:700;color:#6B5A4E">음료 주문서 출력 예시</span>
+<div style="box-sizing:border-box;width:348px;background:#FFFFFF;border:1px solid #DCCFC2;border-radius:4px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;font-family:'JetBrains Mono','Noto Sans KR',monospace;font-size:18px;line-height:26px">
+<div style="text-align:center;font-size:19px;font-weight:700">[카페 이름] 주문서</div>
+<div style="display:flex;justify-content:space-between;align-items:center;font-weight:700"><span style="font-size:24px">C-042</span><span style="box-sizing:border-box;border:3px solid #2B1D16;padding:2px 14px;font-size:30px;line-height:40px">매장</span></div>
+<div style="border-top:2px dashed #A8988B"></div>
+<div style="display:flex;justify-content:space-between;font-weight:700"><span>아메리카노 ICE 톨</span><span>x1</span></div>
+<div style="font-size:15px;color:#6B5A4E;padding-left:10px">· 얼음 보통 · 매장 컵</div>
+<div style="display:flex;justify-content:space-between;font-weight:700"><span>카페 라떼 ICE 그란데</span><span>x1</span></div>
+<div style="font-size:15px;color:#6B5A4E;padding-left:10px">· 시럽 없음 · 매장 컵</div>
+<div style="display:flex;justify-content:space-between;font-weight:700"><span>말차 라떼 HOT 톨</span><span>x1</span></div>
+<div style="border-top:2px dashed #A8988B"></div>
+<div style="display:flex;justify-content:space-between;font-size:15px;color:#6B5A4E"><span>스탬프 +3 · 전체결제</span><span>09:12</span></div>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>카페 시작 화면</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width:800px;height:1280px;box-sizing:border-box;background:#F7F3EE;color:#2B1D16;font-family:'Noto Sans KR',sans-serif;display:flex;flex-direction:column;align-items:center;overflow:hidden">
+
+<div style="flex:none;width:100%;height:600px;box-sizing:border-box;background:#2B1D16;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
+<span style="font-family:'Bebas Neue',sans-serif;font-size:96px;letter-spacing:2px;line-height:96px;color:#F7F3EE">[카페명]</span>
+<span style="font-size:24px;color:#D9C7B5">[시즌 음료 프로모션 이미지 영역]</span>
+</div>
+
+<div style="flex:none;box-sizing:border-box;width:100%;padding:0 64px;margin-top:-40px">
+<div style="box-sizing:border-box;border-radius:20px;background:#FFFFFF;border:2px solid #00C9A7;padding:18px 24px;display:flex;align-items:center;gap:16px">
+<div style="display:flex;gap:6px" aria-hidden="true">
+<span style="width:22px;height:22px;border-radius:11px;background:#007A64"></span>
+<span style="width:22px;height:22px;border-radius:11px;background:#007A64"></span>
+<span style="width:22px;height:22px;border-radius:11px;background:#007A64"></span>
+<span style="width:22px;height:22px;border-radius:11px;border:2px solid #007A64;box-sizing:border-box"></span>
+</div>
+<span style="font-size:21px;font-weight:700;color:#00473A">음료 1잔마다 스탬프 1개 · 10개 모으면 커피 1잔 무료</span>
+</div>
+</div>
+
+<div style="flex:none;padding:48px 32px 36px;display:flex;flex-direction:column;align-items:center;gap:12px">
+<span style="font-size:40px;font-weight:700;line-height:52px">어디서 드시나요?</span>
+<span style="font-size:22px;color:#6B5A4E">컵 종류와 주문서 표기가 달라져요</span>
+</div>
+
+<div style="flex:none;width:100%;box-sizing:border-box;padding:0 64px;display:flex;gap:24px">
+<a href="Main.dc.html" style="flex:1;height:240px;box-sizing:border-box;border-radius:28px;background:#FFFFFF;border:3px solid #5A3A28;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-decoration:none;color:#2B1D16">
+<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#5A3A28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"></path><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16"></path><path d="M8 3v3"></path><path d="M12 3v3"></path></svg>
+<span style="font-size:40px;font-weight:700">매장</span>
+<span style="font-size:20px;color:#6B5A4E">머그컵에 드려요</span>
+</a>
+<a href="Main.dc.html" style="flex:1;height:240px;box-sizing:border-box;border-radius:28px;background:#FFFFFF;border:3px solid #DCCFC2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-decoration:none;color:#2B1D16">
+<svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#2B1D16" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1.4 13H7.4z"></path><path d="M5 7h14"></path><path d="M8 4h8l1 3H7z"></path></svg>
+<span style="font-size:40px;font-weight:700">포장</span>
+<span style="font-size:20px;color:#6B5A4E">테이크아웃 컵에 드려요</span>
+</a>
+</div>
+
+<div style="flex:1"></div>
+
+<div style="flex:none;padding:0 32px 48px;display:flex;gap:12px">
+<button style="height:56px;padding:0 24px;border:1px solid #DCCFC2;border-radius:28px;background:#FFFFFF;font-family:inherit;font-size:20px;font-weight:500;color:#2B1D16">한국어 · English</button>
+<button style="height:56px;padding:0 24px;border:1px solid #DCCFC2;border-radius:28px;background:#FFFFFF;font-family:inherit;font-size:20px;font-weight:500;color:#2B1D16">큰 글씨 · 낮은 화면</button>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":800,"height":1280}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
